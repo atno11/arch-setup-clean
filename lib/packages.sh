@@ -104,12 +104,15 @@ PACMAN_PACKAGES=(
     # Python
     python
     python-psutil
+    python-pipx
 )
 
 install_official_packages() {
     echo
     echo "==> Installing official packages..."
 
-    sudo pacman -Syu --needed --noconfirm \
+    sudo pacman -Syu \
+        --needed \
+        --noconfirm \
         "${PACMAN_PACKAGES[@]}"
 }

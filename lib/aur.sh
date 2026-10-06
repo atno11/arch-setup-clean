@@ -4,7 +4,6 @@ AUR_PACKAGES=(
     oh-my-posh
     xkb-switch
     i3lock-color
-    pawlette-git
 )
 
 install_yay() {
@@ -26,7 +25,9 @@ install_yay() {
 
     (
         cd "$tmp_dir/yay"
-        makepkg -si --noconfirm
+
+        makepkg -si \
+            --noconfirm
     )
 
     rm -rf "$tmp_dir"
@@ -36,6 +37,8 @@ install_aur_packages() {
     echo
     echo "==> Installing AUR packages..."
 
-    yay -S --needed --noconfirm \
+    yay -S \
+        --needed \
+        --noconfirm \
         "${AUR_PACKAGES[@]}"
 }

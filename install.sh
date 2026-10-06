@@ -11,6 +11,7 @@ source "$ROOT_DIR/lib/packages.sh"
 source "$ROOT_DIR/lib/hardware.sh"
 source "$ROOT_DIR/lib/aur.sh"
 source "$ROOT_DIR/lib/dotfiles.sh"
+source "$ROOT_DIR/lib/pawlette.sh"
 source "$ROOT_DIR/lib/theme.sh"
 source "$ROOT_DIR/lib/audio.sh"
 source "$ROOT_DIR/lib/services.sh"
@@ -27,6 +28,7 @@ main() {
     install_yay
     install_aur_packages
     install_dotfiles
+    install_pawlette
     install_theme
     configure_audio
     enable_services
