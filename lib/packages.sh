@@ -5,12 +5,14 @@ PACMAN_PACKAGES=(
     base-devel
     git
     sudo
+    pciutils
 
     # Desktop / X11
     xorg-server
     xorg-xrandr
     xorg-xdpyinfo
     xorg-xsetroot
+    xorg-xset
     xorg-setxkbmap
     xorg-xrdb
 
@@ -23,6 +25,9 @@ PACMAN_PACKAGES=(
     zsh
     neovim
     nano
+
+    # Fonts
+    ttf-jetbrains-mono-nerd
 
     # Launcher / file manager
     rofi
@@ -69,9 +74,11 @@ PACMAN_PACKAGES=(
     # Notifications
     libnotify
 
-    # Image / misc
+    # Image / archive / misc
     imagemagick
     curl
+    tar
+    unzip
     pacman-contrib
 
     # Networking
@@ -97,9 +104,6 @@ PACMAN_PACKAGES=(
     # Python
     python
     python-psutil
-    
-    # Fonts
-    ttf-jetbrains-mono-nerd
 )
 
 install_official_packages() {

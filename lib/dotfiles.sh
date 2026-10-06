@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES_REPO_URL="https://github.com/atno11/dotfiles.git"
+DOTFILES_REPO_URL="https://github.com/atno11/dotfiles-clean.git"
 DOTFILES_DIR="$HOME/Repositories/atno11/dotfiles"
 
 backup_path() {
@@ -231,6 +231,25 @@ link_home_directories() {
     done
 }
 
+link_icon_defaults() {
+    local source
+    local target
+
+    source="$DOTFILES_DIR/.icons/default"
+    target="$HOME/.icons/default"
+
+    [[ -d "$source" ]] || return 0
+
+    echo
+    echo "==> Linking default icon theme..."
+
+    mkdir -p "$HOME/.icons"
+
+    link_path \
+        "$source" \
+        "$target"
+}
+
 prepare_runtime_directories() {
     echo
     echo "==> Preparing runtime directories..."
@@ -254,6 +273,7 @@ validate_dotfiles() {
         "$HOME/.config/pipewire/pipewire.conf.d/10-virtual.conf"
         "$HOME/.config/pipewire/pipewire.conf.d/20-recv.conf"
         "$HOME/.config/pipewire/pipewire.conf.d/40-mic.conf"
+        "$HOME/.icons/default"
         "$HOME/.local/bin"
         "$HOME/.zshenv"
     )
@@ -286,6 +306,7 @@ install_dotfiles() {
     link_local_share_entries
     link_home_files
     link_home_directories
+    link_icon_defaults
 
     validate_dotfiles
 }
